@@ -542,7 +542,7 @@ function Viewer3D(props) {
       )
     }
     g_render_scene()
-  }, [productStore.productData, productStore.currentDracoVersion,backgroundColorStore.backgroundColor])
+  }, [productStore.productData, productStore.currentDracoVersion,backgroundColorStore.backgroundColor,autoRotateStore.autoRotate])
 
   useEffect(() => {
     if (g_selected_node) {
