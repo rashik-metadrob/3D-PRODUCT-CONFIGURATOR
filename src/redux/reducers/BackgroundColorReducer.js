@@ -1,7 +1,7 @@
 import { SET_BACKGROUND_COLOR } from "../StoreConstants";
 
 const initialState = {
-  backgroundColor: "#aeaeae", // Default background color
+  backgroundColor: "#aeaeae", 
 };
 
 const BackgroundColorReducer = (state = initialState, action) => {

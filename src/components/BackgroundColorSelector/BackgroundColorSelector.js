@@ -38,9 +38,6 @@ const BackgroundColorSelector = (props) => {
         <option value="#ffffff">White</option>
         <option value="#000000">Black</option>
         <option value="#aeaeae">Gray</option>
-        <option value="#ff0000">Red</option>
-        <option value="#00ff00">Green</option>
-        <option value="#0000ff">Blue</option>
        
       </Select>
     </FormControl>

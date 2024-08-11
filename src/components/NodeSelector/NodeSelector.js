@@ -26,7 +26,7 @@ const NodeSelector = props => {
   return (
     <FormControl fullWidth className={classes.formControl}>
       <InputLabel shrink variant="outlined" id="node-selector">
-        Select a node
+        Select a Part
       </InputLabel>
       <Select
         labelId="node-selector"

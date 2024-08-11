@@ -18,11 +18,11 @@ export default function Home() {
     <>
       <StyledPaper>
         {/* <DracoSelector /> */}
+       <h2 style={{paddingLeft: "0.5em", paddingTop:"0em", height:"5px",padding:"0.5em", top:"0em" }}>Product Selector</h2>
         <ProductSelector />
         <NodeSelector />
         {/* <MeshSelector /> */}
-       <BackgroundColorSelector/>
-       <TogglerButten/>
+      
       </StyledPaper>
    
    {/* {isOpen && (
@@ -36,6 +36,11 @@ export default function Home() {
       {/* <MaterialSettingHolder>
         <MaterialSettings />
       </MaterialSettingHolder> */}
+        <StyledPaper2>
+        <h2 style={{paddingLeft: "0.5em", paddingTop:"0em", padding:"0.5em", height:"5px", top:"0em" }}>Background Selector</h2>
+ <BackgroundColorSelector/>
+       <TogglerButten/>
+        </StyledPaper2>
       <MaterialSelectHolder>
         <MaterialSelector />
       </MaterialSelectHolder>
@@ -52,6 +57,15 @@ const StyledPaper = styled(Paper)`
     z-index: 1;
     width: min-content;
 `
+
+const StyledPaper2=styled(Paper)`
+   padding: 0.5em;
+    position: absolute;
+    top: 25em;
+    left: 1em;
+    z-index: 1;
+    width: min-content;
+` 
 
 const MaterialSettingHolder = styled.div`
   padding: 1em;
