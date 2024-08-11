@@ -39,10 +39,14 @@ function Viewer3D(props) {
     productStore,
     setSelectedMeshData,
     setSelectedMeshMaterial,
-    setCurrentNodeData
+    setCurrentNodeData,
+    backgroundColorStore,
+    autoRotateStore,
+    toggleAutoRotate
   } = props
   const canvasContainer = useRef(null)
   const [showLoader, setShowLoader] = useState(true)
+  // const [autoRotate, setAutoRotate] = useState(true)
 
   function setNodeMaterial(node, materialData) {
     if (node && materialData) {
@@ -226,8 +230,9 @@ function Viewer3D(props) {
     /**
      * Scene
      */
+    //----this si the baground color
     const scene = new THREE.Scene()
-    scene.background = new THREE.Color("#aeaeae")
+    scene.background = new THREE.Color(backgroundColorStore.backgroundColor)
     // scene.fog = new THREE.Fog(0xa0a0a0, SPACE_SIZE * 0.9, SPACE_SIZE)
     g_scene = scene
 
@@ -378,6 +383,10 @@ function Viewer3D(props) {
     cameraController.enablePan = false
     g_camera_controller = cameraController
 
+
+    cameraController.autoRotate = autoRotateStore.autoRotate; 
+    cameraController.autoRotateSpeed = 3.5; 
+
     /**
      * Load Assets
      */
@@ -445,7 +454,7 @@ function Viewer3D(props) {
       window.removeEventListener("resize", requestRenderIfNotRequested)
       if (canvasContainer.current) canvasContainer.current.innerHTML = ""
     }
-  }, [])
+  }, [backgroundColorStore.backgroundColor,productStore.productData, productStore.currentDracoVersion,autoRotateStore.autoRotate])
 
   useEffect(() => {
     setCurrentNodeData(null)
@@ -533,7 +542,7 @@ function Viewer3D(props) {
       )
     }
     g_render_scene()
-  }, [productStore.productData, productStore.currentDracoVersion])
+  }, [productStore.productData, productStore.currentDracoVersion,backgroundColorStore.backgroundColor,autoRotateStore.autoRotate])
 
   useEffect(() => {
     if (g_selected_node) {
@@ -597,11 +606,13 @@ const mapStateToProps = state => ({
   productStore: state.productStore,
   setSelectedMeshData: PropTypes.func.isRequired,
   setSelectedMeshMaterial: PropTypes.func.isRequired,
-  setCurrentNodeData: PropTypes.func.isRequired
+  setCurrentNodeData: PropTypes.func.isRequired,
+  backgroundColorStore: state.backgroundColorStore,
+  autoRotateStore: state.autoRotateStore,
 })
 
 export default connect(mapStateToProps, {
   setSelectedMeshData,
   setSelectedMeshMaterial,
-  setCurrentNodeData
+  setCurrentNodeData,
 })(Viewer3D)

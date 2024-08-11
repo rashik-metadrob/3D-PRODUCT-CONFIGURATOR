@@ -9,17 +9,20 @@ import ProductSelector from "../components/ProductSelector"
 import Viewer3D from "../components/Viewer3D"
 import MaterialSettings from "../components/MaterialSettings/MaterialSettings"
 import TogglerSelector from "../components/TogglerSelector";
-
+import BackgroundColorSelector from "../components/BackgroundColorSelector";
+import TogglerButten from "../components/TogglerButten";
 export default function Home() {
   // const [isOpen,setIsOpen]=useState(false)
+  const [color,setColor]=useState('white')
   return (
     <>
       <StyledPaper>
         {/* <DracoSelector /> */}
         <ProductSelector />
         <NodeSelector />
-        <MeshSelector />
-       
+        {/* <MeshSelector /> */}
+       <BackgroundColorSelector/>
+       <TogglerButten/>
       </StyledPaper>
    
    {/* {isOpen && (
@@ -36,7 +39,7 @@ export default function Home() {
       <MaterialSelectHolder>
         <MaterialSelector />
       </MaterialSelectHolder>
-      <Viewer3D />
+      <Viewer3D  />
     </>
   )
 }
