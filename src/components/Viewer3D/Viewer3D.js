@@ -18,6 +18,8 @@ import {SPACE_SIZE} from "./Viewer3DConstants"
 import {setSelectedMeshData} from "../../redux/actions/MeshActions"
 import {setSelectedMeshMaterial} from "../../redux/actions/MaterialActions"
 import {setCurrentNodeData} from "../../redux/actions/NodeActions"
+import { EXRLoader } from 'three/examples/jsm/loaders/EXRLoader';
+
 
 let g_model_root
 let g_scene
@@ -30,6 +32,7 @@ let g_gltf_loader
 let g_texture_loader
 let g_rgbe_loader
 let g_is_load_model = false
+let g_exr_loader; 
 
 function Viewer3D(props) {
   const {
@@ -208,6 +211,7 @@ function Viewer3D(props) {
     return data
   }
 
+
   useEffect(() => {
     let width = canvasContainer.current.offsetWidth
     let height = canvasContainer.current.offsetHeight
@@ -249,6 +253,11 @@ function Viewer3D(props) {
      */
     // const axisHelper = new THREE.AxesHelper(5)
     // scene.add(axisHelper)
+
+
+
+
+
 
     const shadowPlane = ShadowPlane()
     scene.add(shadowPlane)
@@ -387,6 +396,20 @@ function Viewer3D(props) {
     cameraController.autoRotate = autoRotateStore.autoRotate; 
     cameraController.autoRotateSpeed = 3.5; 
 
+
+    // g_exr_loader = new EXRLoader();
+    // g_exr_loader.load('../../../public/EXR/small_empty_room_3_4k.exr', texture => {
+    //   const pmremGenerator = new PMREMGenerator(renderer);
+    //   pmremGenerator.compileEquirectangularShader();
+    //   const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+    //   g_scene.background = envMap;
+    //   texture.dispose();
+    //   pmremGenerator.dispose();
+    // });
+
+
+
+ 
     /**
      * Load Assets
      */
@@ -436,6 +459,16 @@ function Viewer3D(props) {
         smaaAreaImage
       )
     })
+
+    // g_exr_loader = new EXRLoader();
+    // g_exr_loader.load('../../../public/EXR/anniversary_lounge_4k.exr', texture => {
+    //   const pg = new PMREMGenerator(g_render);
+    //   pg.compileEquirectangularShader();
+    //   const envMap = pg.fromEquirectangular(texture).texture;
+    //   g_scene.environment = envMap;
+    //   texture.dispose();
+    //   pg.dispose();
+    // });
 
     //Load env map
     g_rgbe_loader = new RGBELoader(gltfLoadingManager)
