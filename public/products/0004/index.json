@@ -10,7 +10,7 @@
   "nodes": [
     {
       "id": "handle",
-      "label": "handle",
+      "label": "Knobs",
       "defaultMesh": "handle_type_2",
       "defaultMaterial": {
         "name": "Gold old",
@@ -76,7 +76,7 @@
     },
     {
       "id": "metal",
-      "label": "metal",
+      "label": "Spindle and Legs",
       "defaultMesh": "metal",
       "defaultMaterial": {
         "name": "Gold old",
@@ -138,7 +138,7 @@
     },
     {
       "id": "wood",
-      "label": "wood",
+      "label": "Drawer and Body",
       "defaultMesh": "wood",
       "defaultMaterial": {
         "name": "Wood",

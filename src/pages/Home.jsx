@@ -61,8 +61,8 @@ const StyledPaper = styled(Paper)`
 const StyledPaper2=styled(Paper)`
    padding: 0.5em;
     position: absolute;
-    top: 25em;
-    left: 1em;
+    top: 1em;
+    right: 1em;
     z-index: 1;
     width: min-content;
 ` 

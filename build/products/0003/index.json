@@ -10,7 +10,7 @@
   "nodes": [
     {
       "id": "metal",
-      "label": "metal",
+      "label": "Spindle",
       "defaultMesh": "metal",
       "defaultMaterial": {
         "name": "Gold old",
@@ -72,7 +72,7 @@
     },
     {
       "id": "seat",
-      "label": "seat",
+      "label": "Seat",
       "defaultMesh": "seat",
       "defaultMaterial": {
         "name": "Wood",
@@ -134,7 +134,7 @@
     },
     {
       "id": "wood",
-      "label": "wood",
+      "label": "Legs",
       "defaultMesh": "wood",
       "defaultMaterial": {
         "name": "Cheap wood",
